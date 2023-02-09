@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_ui/util/my_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +60,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 200,
               child: PageView(
+                controller: _controller,
                 scrollDirection: Axis.horizontal,
                 children: [
                   MyCard(
@@ -82,6 +86,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+            ),
+
+            SizedBox(
+              height: 25,
+            ),
+
+            SmoothPageIndicator(
+              controller: _controller,
+              count: 3,
+              effect: ExpandingDotsEffect(activeDotColor: Colors.grey.shade700),
             )
 
             // 3 buttons -> send + pay + bills
