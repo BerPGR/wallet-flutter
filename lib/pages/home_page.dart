@@ -20,6 +20,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.pink,
+        child: Icon(Icons.monetization_on),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.settings))
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -125,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 40),
+            SizedBox(height: 25),
 
             // column -> stats + transactions
             Padding(
