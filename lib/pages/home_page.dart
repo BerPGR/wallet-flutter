@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_ui/util/my_card.dart';
 import 'package:wallet_ui/util/my_button.dart';
+import 'package:wallet_ui/util/my_list_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
 
             //cards
             Container(
-              height: 200,
+              height: 190,
               child: PageView(
                 controller: _controller,
                 scrollDirection: Axis.horizontal,
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
               effect: ExpandingDotsEffect(activeDotColor: Colors.grey.shade700),
             ),
 
-            SizedBox(height: 25),
+            SizedBox(height: 40),
             // 3 buttons -> send + pay + bills
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -122,9 +123,28 @@ class _HomePageState extends State<HomePage> {
                       iconImagePath: 'assets/icons/bill.png')
                 ],
               ),
-            )
+            ),
+
+            SizedBox(height: 40),
 
             // column -> stats + transactions
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                children: [
+                  MyListTile(
+                    iconImagePath: 'assets/icons/statistics.png',
+                    title: 'Statistics',
+                    subtitle: 'Payments and income',
+                  ),
+                  MyListTile(
+                    iconImagePath: 'assets/icons/transaction.png',
+                    title: 'Transactions',
+                    subtitle: 'Transaction History',
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
